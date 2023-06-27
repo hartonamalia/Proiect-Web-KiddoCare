@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kiddoCare</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Righteous:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="../css/mainStyle.css">
+    <link rel="stylesheet" href="../css/calendar.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="../scripts/mainFunctions.js"></script>
+    <script src="/scripts/logout.js" defer></script>
+    <script src="/scripts/updateBabyProfile.js" defer></script>
+    <script src="/scripts/sendFiles.js" defer></script>
+    <script src="/scripts/mainDesign.js" defer></script>
+    <script src="/scripts/mealFunctions.js" defer></script>
+    <script src="/scripts/sleepFunctions.js" defer></script>
+    <script src="/scripts/importExport.js" defer></script>
+    <script src="/scripts/userFunctions.js" defer></script>
+    <script src="/scripts/timelineFunctions.js" defer></script>
+    <script src="/scripts/medicalFunctions.js" defer></script>
+    <script src="/scripts/galleryFunctions.js" defer></script>
+</head>
+
+<body>
+<header class="sticky-header">
+    <div class="drop">
+        <span onclick="dropdown()" class="material-symbols-rounded">menu</span>
+    </div>
+    <div class="mobile-pic">
+        <a href="/views/editProfile.html"><img id="mobile-main-profile-pic" src="/images/user_img.png" alt=""></a>
+        <span onclick="themeToggle()" class="material-symbols-rounded">nights_stay</span>
+        <span class="material-symbols-rounded logoutButton" onclick="logout()">logout</span>
+    </div>
+
+</header>
+<div class="container">
+    <div class="pop-up" id="pop">
+        <div class="pop-up-profile">
+            <form class="pfp-child" id="pfp-child">
+                <h3>Add your child's profile!</h3>
+                <h5>press escape to exit</h5>
+                <div class="profile-picture-child">
+                    <input type="file" id="profile-pic-baby" name="photo" accept="image/*">
+                </div>
+                <div class="child-information">
+                    <div class="choose-gender g1">
+                        <input type="radio" id="gender-female-pop" value="1" name="gender-type">
+                        <label id="female-pop" for="gender-female">female</label><br>
+                        <input type="radio" id="gender-male-pop" value="0" name="gender-type">
+                        <label for="gender-male">male</label><br>
+                    </div>
+                    <div class="form">
+                        <input placeholder="name" type="text" id="name-pop" name="name" pattern="[a-b]" required>
+                        <input type="date" id="data-pop" name="date" required>
+                        <div class="alignment">
+                            <input placeholder="height (cm)" type="text" id="height-pop" name="details"
+                                   pattern="[0-9]{10}" required>
+                            <input placeholder="weight (kg)" type="text" id="weight-pop" name="details"
+                                   pattern="[0-9]{10}" required>
+                        </div>
+                        <button type="button" class="finish" id="gata" onclick="">finish profile</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="child-profile">
+            <img src="/images/user_img.png" id="kid-pic" class="child-pfp" onclick="showEditChildProfile()">
+            <div class="child-name">
+                <p class="text maintext" id="child-name">Pick a baby<br>[edit profile]</p>
+                <div class="info-child">
+                    <p class="text maintext" id="child-age"></p>
+                    <p class="text maintext" id="child-stats"></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="links">
+            <div class="search">
+                <button type="button" id="continue" onclick="openPopup()"
+                        class="material-symbols-rounded">person_add
+                </button>
+                <button type="button" id="import_btn" class="material-symbols-rounded">cloud_upload<a href=""></a>
+                </button>
+                <button type="button" id="export_btn" class="material-symbols-rounded">cloud_download<a href=""></a>
+                </button>
+            </div>
+            <div onclick="showOverview()" class="likes sidebutton text">Timeline</div>
+            <div onclick="showFeedingTime()" class="feeding sidebutton text">Meal Time</div>
+            <div onclick="showSleepingSchedule()" class="sleeping sidebutton text">Nap Time</div>
+            <div onclick="showGallery()" class="gallery sidebutton text">Gallery</div>
+            <div class="child-list" id="child-list"></div>
+            <span onclick="closeDropdown()" class="material-symbols-rounded mobile-on">expand_less</span>
+        </div>
+    </div>
+    <div class="main">
+        <div class="parent">
+            <!--            MOBILE            -->
+            <div class="mobile-on">
+                <img src="/images/user_img.png"  class="child-pfp" id="kid-pic-mobile"
+                     onclick="showEditChildProfile()">
+                <div>
+                    <p class="text maintext" id="child-name-mobile">Pick a baby</p>
+                    <p class="text maintext" id="child-age-mobile"></p>
+                    <p class="text maintext" id="child-stats-mobile"></p>
+                </div>
+            </div>
+            <div class="main-title" id="main-title"></div>
+            <div class="mobile-off">
+                <a href="editProfile.html"><img id="main-profile-pic" src="/images/user_img.png" alt=""></a>
+                <span onclick="themeToggle()" class="material-symbols-rounded">nights_stay</span>
+                <span class="material-symbols-rounded logoutButton" onclick="logout()">logout</span>
+            </div>
+        </div>
+        <div class="account-overview OVERVIEW">
+            <div>
+                <h2>Timeline - here's what your baby did today in previous years</h2>
+                <div class="date" id="timeline">
+                    <h3>Choose a baby account to see the timeline</h3>
+                </div>
+            </div>
+        </div>
+        <div class="account-overview SLEEPING-SCHEDULE">
+            <div class="log-sleep">
+                <h2>Nap Time</h2>
+                <button onclick="showAddSleep()">Log Sleep</button>
+            </div>
+            <form id="napFormDate">
+                <label for="nap-month">Select Month:</label>
+                <select id="nap-month">
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+                <label for="nap-year">Select Year:</label>
+                <select id="nap-year">
+                    <script>
+                        for (let year = 2023; year >= 2002; year--) {
+                            document.write(`<option value="${year}">${year}</option>`);
+                        }
+                    </script>
+                </select>
+
+                <button type="submit" id="nap-search">Search</button>
+            </form>
+            <div class="calendar-sleep">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Start time</th>
+                        <th>End Time</th>
+                        <th>Quality</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sleep-form">
+                <form onsubmit="return false">
+                    <label for="nap_date">Date:</label><br>
+                    <input type="date" id="nap_date" name="nap_date"><br><br>
+                    <label for="start_time">Start time:</label><br>
+                    <input type="time" id="start_time" name="start_time"><br><br>
+                    <label for="end_time">End time:</label><br>
+                    <input type="time" id="end_time" name="end_time"><br><br>
+                    <label for="sleep_quality">Sleep Quality:</label><br><br>
+                    <select id="sleep_quality" name="sleep_quality">
+                        <option value="Great">Great</option>
+                        <option value="Fussy">Fussy</option>
+                        <option value="Bad">Bad</option>
+                    </select><br><br>
+                    <input onclick="removeAddSleep()" type="submit" class="submitNap" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="account-overview FEEDING-TIME">
+            <div class="feed">
+                <h2>Meal Time</h2>
+                <button onclick="showAddMeal()">Add Meal</button>
+            </div>
+            <form id="mealFormDate">
+                <label for="meal-month">Select Month:</label>
+                <select id="meal-month">
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+                <label for="meal-year">Select Year:</label>
+                <select id="meal-year">
+                    <script>
+                        for (let year = 2023; year >= 2002; year--) {
+                            document.write(`<option value="${year}">${year}</option>`);
+                        }
+                    </script>
+                </select>
+
+                <button type="submit" id="meal-search">Search</button>
+            </form>
+            <div class="calendar-meal">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Food</th>
+                        <th>Type</th>
+                        <th>Quality</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-table">
+                <form onsubmit="return false">
+                    <label for="meal_date">Date:</label><br>
+                    <input type="date" id="meal_date" name="meal_date"><br><br>
+                    <label for="meal_description">What did they eat?:</label><br>
+                    <input type="text" id="meal_description" name="meal_description"><br><br>
+                    <input type="radio" id="Breakfast" name="meal_type">
+                    <label for="Breakfast">Breakfast</label><br>
+                    <input type="radio" id="Lunch" name="meal_type">
+                    <label for="Lunch">Lunch</label><br>
+                    <input type="radio" id="Dinner" name="meal_type">
+                    <label for="Dinner">Dinner</label><br>
+                    <input type="radio" id="Snack" name="meal_type">
+                    <label for="Snack">Snack</label><br><br>
+                    <label for="meal_option">Option:</label><br><br>
+                    <select id="meal_option" name="meal_option">
+                        <option value="Liked">Liked</option>
+                        <option value="Disliked">Disliked</option>
+                        <option value="Allergy">Allergy</option>
+                    </select><br><br>
+                    <input onclick="removeAddMeal()" type="submit" class="submitMeal" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="account-overview GALLERY">
+            <div class="section">
+                <div class="log-sleep">
+                    <h2>Gallery</h2>
+                    <div class="bookmarks">
+                        <button onclick="showAddOption()">Add Media File</button>
+                    </div>
+                    <div id="add-media" class="form-add-image">
+                        <label for="date-pic">Date:</label>
+                        <input type="date" id="date-pic" name="date">
+
+                        <label for="add-pic">Upload:</label><br>
+                        <input type="file" id="add-pic" name="add-photo"
+                               accept="image/jpg, image/jpeg, image/png, video/mp4, .mp3,audio/*"><br><br>
+
+                        <label for="type-pic">Type:</label>
+                        <select id="type-pic" name="date">
+                            <option value="audio">Audio</option>
+                            <option value="video">Video</option>
+                            <option value="image">Image</option>
+                        </select><br><br>
+
+                        <label for="desc-pic">Description:</label>
+                        <input type="text" id="desc-pic" name="date" maxlength="50"><br>
+                        <button type="button" id="done" onclick="sendData()">add</button>
+                    </div>
+
+                </div>
+                <div id="gallery">
+                    <h3>Choose a baby account to see the gallery and add media</h3>
+
+                </div>
+
+            </div>
+            <br>
+        </div>
+        <div class="account-overview EDIT-CHILD">
+            <h2>edit your child's profile</h2>
+            <div class="section-edit">
+                <div class="update">
+                    <div class="choose-gender">
+                        <input type="radio" id="gender-female" value="1" name="gender-type">
+                        <label id="female" for="gender-female">female</label><br>
+                        <input type="radio" id="gender-male" value="0" name="gender-type">
+                        <label for="gender-male">male</label><br>
+                    </div>
+                    <form class="form-child"><br>
+                        <div class="verify">
+                            <input type="date" id="hbd" name="date"><br><br>
+                            <button class="check-btn" id="date_btn" type="button"><span
+                                    class="material-symbols-rounded">data_check</span></button>
+                        </div>
+                        <div class="verify">
+                            <input placeholder="change name" id="changedName">
+                            <button class="check-btn" id="name_btn" type="button"><span
+                                    class="material-symbols-rounded">data_check</span></button>
+                        </div>
+                        <div class="verify">
+                            <input placeholder="change height (cm)" id="changedHeight">
+                            <button class="check-btn" id="height_btn" type="button"><span
+                                    class="material-symbols-rounded">data_check</span></button>
+                        </div>
+                        <div class="verify"><br>
+                            <input placeholder="change weight (kg)" id="changedWeight">
+                            <button class="check-btn" id="weight_btn" type="button"><span
+                                    class="material-symbols-rounded">data_check</span></button>
+                        </div>
+                        <div class="verify">
+                            <input id="profile-pic" type="file" name="add-pfp"
+                                   accept="image/jpg, image/jpeg, image/png">
+                            <button class="check-btn" onclick="updateProfilePicture()"><span
+                                    class="material-symbols-rounded">data_check</span></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="med">
+                    <br>
+                    <h2>medical history</h2>
+                    <form onsubmit="return false">
+                        <input id="pdf" type="file" name="add-photo" accept="pdf"><br><br>
+                        <input type="submit" class="submit" value="Upload file" onclick="sendMedicalFile()">
+                    </form>
+                    <br>
+                    <form onsubmit="return false">
+
+                        <input onclick="showFiles()" type="date" id="data" name="date"><br><br>
+                    </form>
+                    <div class="show-files">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+<script src="../scripts/mainFunctions.js"></script>
+</body>
+
+</html>

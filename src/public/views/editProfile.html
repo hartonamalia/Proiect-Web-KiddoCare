@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kiddoCare</title>
+    <link rel="stylesheet" href="/css/editProfileStyle.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../scripts/editProfileFunctions.js"></script>
+    <script src="/scripts/darkTheme.js"></script>
+    <script src="/scripts/logout.js" defer></script>
+</head>
+
+<body>
+<header>
+    <div class="banner">
+        <a href="/views/main.html" class="left-button"><span class="material-symbols-rounded">reply</span></a>
+        <span class="banner-text">kiddoCare</span>
+        <span class="material-symbols-rounded  right-button" onclick="logout()">logout</span>
+    </div>
+</header>
+<div class="signup">
+    <div class="signup-box">
+        <section class="left-parent-info">
+            <div class="pfp-parent">
+                <img id="pfp" width="160" height="160">
+                <div class="info-parent" id="info-parent">
+                </div>
+            </div>
+
+            <div class="child-list">
+            </div>
+        </section>
+
+        <div class="right-parent-info">
+            <div class="form">
+                <div class="verify">
+                    <input type="text" placeholder="Add child code" id="codeInput">
+                    <button class="check-btn" onclick="addChild()"><span class="material-symbols-rounded">data_check</span></button>
+                </div>
+                <div class="verify">
+                    <input placeholder="Change name" type="text" id="nameInput">
+                    <button class="check-btn" onclick="updateName()"><span class="material-symbols-rounded">data_check</span></button>
+                </div>
+                <div class="verify">
+                    <input type="email" placeholder="Change email" id="emailInput">
+                    <button class="check-btn" onclick="updateEmail()"><span class="material-symbols-rounded">data_check</span></button>
+                </div>
+                <div class="verify">
+                    <input type="password" placeholder="Change password" id="passwordInput">
+                    <button class="check-btn" onclick="updatePassword()"><span class="material-symbols-rounded">data_check</span></button>
+                </div>
+                <div class="verify">
+                    <input id="profile-pic" type = "file" name="add-pfp" accept="image/jpg, image/jpeg, image/png">
+                    <button class="check-btn" onclick="updateProfilePicture()"><span class="material-symbols-rounded">data_check</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/scripts/editProfileFunctions.js"></script>
+</body>
+</html>

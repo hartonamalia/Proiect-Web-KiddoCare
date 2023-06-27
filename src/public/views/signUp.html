@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kiddoCare</title>
+    <link rel="stylesheet" href="../css/signUpStyle.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <script src="/scripts/signUpFunctions.js"></script>
+    <script src="/scripts/darkTheme.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="banner">kiddoCare</div>
+</header>
+<div class="signup">
+    <div class="signup-box">
+        <div class="right-parent-info">
+            <form class="signup-form" id="signupform">
+                <div class="form">
+
+                    <label for="profile-pic" class="file-label">
+                        <span class="material-symbols-rounded">add_a_photo</span>
+                        Choose image
+                        <input type="file" id="profile-pic" name="photo" accept="image/*">
+                    </label>
+
+
+                    <input placeholder="parent name" type="text" name="username">
+                    <input type="email" placeholder="example@gmail.com" name="email">
+                    <input type="password" placeholder="********" name="password">
+                </div>
+                <div class="modify-profile">
+                    <button type="button" id="done" onclick="registerAccount()">finish profile</button>
+                </div>
+            </form>
+            <p class="already-exists">
+                Already have an account? <a href="../views/login.html" style="color: #C1BDB3">Login here</a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
