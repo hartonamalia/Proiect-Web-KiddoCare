@@ -9,5 +9,5 @@ a celor mai importante momente surprinse referitoare la fiecare copil in parte, 
 momente in cadrul unei aplicatii sociale sau via un flux de stiri RSS. Functionalitatile sistemului vor fi expuse si prin 
 intermediul unui API Web REST/GraphQL. 
 
-Prezentarea video: https://www.youtube.com/watch?v=-6SSC72-_wE
+Prezentarea video: https://www.youtube.com/watch?v=bTqWEbgN8lg
 
