@@ -1,13 +1,6 @@
 ## BaIn (Baby Info Manager)
 
-Sa se dezvolte o aplicatie Web care sa permita utilizatorilor autentificati -- eventual,
-familii sau cupluri de persoane -- gestiunea resurselor privitoare la ingrijirea unui copil 
-(de la bebelus si copil de varsta prescolara la puber). Se vor viza calendarul hranirii, al orelor de somn, 
-diverse resurse multimedia (fotografii, filme, inregistrari audio,...) privind evolutia copilului, istoricul medical, 
-relationarea cu alti copii (e.g., verisori, colegi de gradinita/scoala) etc. Aplicatia va oferi o vedere cronologica (timeline) 
-a celor mai importante momente surprinse referitoare la fiecare copil in parte, cu posibilitatea partajarii celor mai semnificative 
-momente in cadrul unei aplicatii sociale sau via un flux de stiri RSS. Functionalitatile sistemului vor fi expuse si prin 
-intermediul unui API Web REST/GraphQL. 
+To develop a Web application that allows authenticated users -- eventually, families or couples -- the management of resources regarding the care of a child (from baby and preschool age child to puberty). The calendar of feeding, sleeping hours, various multimedia resources (photos, films, audio recordings,...) regarding the child's evolution, medical history, the relationship with other children (e.g., cousins, kindergarten/school colleagues), etc. The application will provide a chronological view (timeline) of the most important captured moments related to each individual child, with the possibility of sharing the most significant ones moments within a social application or via an RSS news feed. The functionalities of the system will also be exposed through via a REST/GraphQL Web API.
 
-Prezentarea video: https://www.youtube.com/watch?v=bTqWEbgN8lg
+Video presentation: https://www.youtube.com/watch?v=bTqWEbgN8lg
 
